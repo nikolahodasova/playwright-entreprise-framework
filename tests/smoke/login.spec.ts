@@ -1,14 +1,15 @@
-import { test } from '@playwright/test';
-import { LoginPage } from '../../pages/LoginPage';
+import { test } from '../../fixtures/all-fixtures';
 
 test.describe('@smoke Login', () => {
 
-  test('User can login successfully', async ({ page }) => {
-    const loginPage = new LoginPage(page);
+  test('Standard user can login', async ({ loginPage, user }) => {
 
     await loginPage.navigate('/');
-    await loginPage.verifyLoginPageLoaded();
-    await loginPage.login('standard_user', 'secret_sauce');
+    await loginPage.login(
+      user.username,
+      user.password
+    );
+    await loginPage.verifyLoginSuccess();
   });
 
 });

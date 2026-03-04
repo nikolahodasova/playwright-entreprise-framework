@@ -14,11 +14,19 @@ export class LoginPage extends BasePage {
     await this.page.click(this.loginButton);
   }
 
+  async verifyLoginSuccess() {
+    await expect(this.page.locator('.title')).toHaveText('Products');
+  }
+
   async verifyLoginPageLoaded() {
     await expect(this.page.locator(this.loginButton)).toBeVisible();
   }
 
   async verifyLoginError() {
     await expect(this.page.locator(this.errorMessage)).toBeVisible();
+  }
+
+  async saveState(path: string) {
+    await this.page.context().storageState({ path });
   }
 }
