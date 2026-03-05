@@ -1,10 +1,12 @@
 import { defineConfig } from '@playwright/test';
+const retries = process.env.CI ? 2 : 0;
 
 export default defineConfig({
   testDir: './tests',
+  globalSetup: require.resolve('./utils/global-setup'),
 
   fullyParallel: true,
-  retries: 1,
+  retries,
 
   reporter: [
     ['list'],
