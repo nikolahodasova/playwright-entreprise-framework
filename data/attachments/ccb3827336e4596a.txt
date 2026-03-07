@@ -1,0 +1,1 @@
+A snapshot doesn't exist at C:\Users\Nikol\playwright-entreprise-framework\tests\reggresion\inventory-visual-check.spec.ts-snapshots\inventory-page-chromium-win32.png, writing actual.
